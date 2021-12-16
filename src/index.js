@@ -4,7 +4,7 @@ mongoose
   .connect(`mongodb://mongodb:27017/test?connectTimeoutMS=${process.env.CONNECTION_TIMEOUT_MS || 30000}`)
   .then(() => {
     console.log('conectou')
-  }, error => console.log);
+  }, error => console.log(error));
 
 const Book = mongoose.model('Books', { 
   name: String,
