@@ -1,12 +1,17 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://mongo:27017/test');
+mongoose
+  .connect('mongodb://mongodb:27017/test')
+  .then(x => {
+    console.log('conectou')
+  })
+  .catch(error => console.log);
+
 const Book = mongoose.model('Books', { 
   name: String,
   releaseDate: Date
 });
 
 const express = require('express'), bodyParser = require('body-parser');
-const { response } = require('express');
 const app = express()
 app.use(bodyParser.json());
 
