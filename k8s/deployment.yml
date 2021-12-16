@@ -32,7 +32,7 @@ spec:
                 key:  library-secret
                 name: library-auth
           - name: "CONNECTION_TIMEOUT_MS"
-            value: 30000
+            value: "30000"
 ---
 apiVersion: apps/v1
 kind: Deployment
