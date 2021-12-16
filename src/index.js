@@ -1,26 +1,33 @@
 const mongoose = require('mongoose');
-const mongoose = require('mongoose');
 mongoose.connect('mongodb://mongodb:27017/test');
 const Book = mongoose.model('Books', { 
   name: String,
   releaseDate: Date
 });
 
-const express = require('express')
+const express = require('express'), bodyParser = require('body-parser');
+const { response } = require('express');
 const app = express()
+app.use(bodyParser.json());
+
 const port = 3000
 
 app.get('/', (req, res) => {
   res.send("A Book API")
 })
 
-app.get('/books', (req, res) => {
-  res.send(Book.find())
+app.get('/books', async (req, res) => {
+  const books = await Book.find({})
+  const response = books.map(x => {
+    return { name: x.name, releaseDate: x.releaseDate }
+  })
+  res.send(response)
 })
 
 app.post('/books', (req, res) => {
   const book = new Book(req.body)
-  book.save().then(() => console.log('book saved'))
+  book.save().then(() => res.send('book saved'))
+  
 })
 
 app.listen(port, () => {

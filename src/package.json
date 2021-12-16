@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "software de livraria",
   "main": "index.js",
-  "scripts": {
-    "run": "node index.js"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DyegoMaas/fiap-aso6-ocp.git"
@@ -20,6 +18,7 @@
   },
   "homepage": "https://github.com/DyegoMaas/fiap-aso6-ocp#readme",
   "dependencies": {
+    "body-parser": "^1.19.1",
     "express": "^4.17.1",
     "mongoose": "^6.1.2"
   }
