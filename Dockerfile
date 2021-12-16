@@ -1,10 +1,6 @@
-FROM ubuntu:focal
-RUN apt update 
-RUN apt install nodejs -y
-RUN apt install npm -y
+FROM node:14-alpine3.12
 
 COPY src .
-RUN npm -v
+RUN npm install
 
-ENTRYPOINT [ "node", "run" ]
-
+ENTRYPOINT [ "node", "index.js" ]

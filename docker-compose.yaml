@@ -1,0 +1,12 @@
+version: "3"
+services:
+  library:
+    build:
+      context: .
+    environment:
+      - LIBRARY_SECRET=um-segredo
+  mongodb:
+    image: mongo:3.6.0
+    tmpfs: /data/db
+    ports:
+      - "27018:27017"
