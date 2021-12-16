@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://mongodb:27017/test');
+mongoose.connect('mongodb://mongo:27017/test');
 const Book = mongoose.model('Books', { 
   name: String,
   releaseDate: Date

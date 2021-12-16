@@ -35,7 +35,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mongodb
+  name: mongo
   namespace: dyegomaas
 spec:
   replicas: 1
@@ -47,7 +47,6 @@ spec:
       labels:
         app: mongodb
     spec:
-      hostname: mongodb
       containers:
       - name: mongodb
         image: mongo:latest
