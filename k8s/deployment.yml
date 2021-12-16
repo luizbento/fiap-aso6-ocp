@@ -31,6 +31,8 @@ spec:
               secretKeyRef:
                 key:  library-secret
                 name: library-auth
+          - name: "CONNECTION_TIMEOUT_MS"
+            value: 30000
 ---
 apiVersion: apps/v1
 kind: Deployment

@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
+
 mongoose
-  .connect('mongodb://mongodb:27017/test')
+  .connect(`mongodb://mongodb:27017/test?connectTimeoutMS=${process.env.CONNECTION_TIMEOUT_MS || 30000}`)
   .then(() => {
     console.log('conectou')
-  })
-  .catch(error => console.log);
+  }, error => console.log);
 
 const Book = mongoose.model('Books', { 
   name: String,
