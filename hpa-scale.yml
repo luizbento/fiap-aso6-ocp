@@ -2,13 +2,13 @@ apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
   name: hpa-atividade-fiap
-  namespace: fiap-aso-dyegomaas
+  namespace: dyegomaas
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: blog-django-py-git
-  minReplicas: 1
+    name: library
+  minReplicas: 2
   maxReplicas: 10
   metrics:
     - type: Resource

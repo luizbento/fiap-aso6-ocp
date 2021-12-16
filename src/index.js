@@ -1,24 +1,26 @@
-const express = require('express')
 const mongoose = require('mongoose');
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://mongodb:27017/test');
+const Book = mongoose.model('Books', { 
+  name: String,
+  releaseDate: Date
+});
 
+const express = require('express')
 const app = express()
 const port = 3000
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send("A Book API")
+})
+
+app.get('/books', (req, res) => {
+  res.send(Book.find())
 })
 
 app.post('/books', (req, res) => {
-/*
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/test');
-
-const Cat = mongoose.model('Cat', { name: String });
-
-const kitty = new Cat({ name: 'Zildjian' });
-kitty.save().then(() => console.log('meow'));
-*/
-
+  const book = new Book(req.body)
+  book.save().then(() => console.log('book saved'))
 })
 
 app.listen(port, () => {

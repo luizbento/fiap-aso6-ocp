@@ -1,8 +1,10 @@
-FROM focal
-RUN apt update & apt install node
+FROM ubuntu:focal
+RUN apt update 
+RUN apt install nodejs -y
+RUN apt install npm -y
 
 COPY src .
-RUN npm install
+RUN npm -v
 
 ENTRYPOINT [ "node", "run" ]
 
