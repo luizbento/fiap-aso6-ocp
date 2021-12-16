@@ -18,6 +18,12 @@ spec:
         image: dyegomaas/library:latest
         ports:
         - containerPort: 80
+        env:
+          - name: "LIBRARY_SECRET"
+            valueFrom:
+              secretKeyRef:
+                key:  library-secret
+                name: library-auth
 -----------------
 apiVersion: apps/v1
 kind: Deployment

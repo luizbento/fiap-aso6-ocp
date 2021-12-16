@@ -13,7 +13,8 @@ app.use(bodyParser.json());
 const port = 3000
 
 app.get('/', (req, res) => {
-  res.send("A Book API")
+  const secret = process.env.LIBRARY_SECRET
+  res.send(`A Book API: secret=${secret}`)
 })
 
 app.get('/books', async (req, res) => {
