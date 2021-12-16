@@ -9,11 +9,11 @@ spec:
     kind: Deployment
     name: library
   minReplicas: 2
-  maxReplicas: 10
+  maxReplicas: 6
   metrics:
     - type: Resource
       resource:
         name: cpu
         target:
-          averageUtilization: 20
+          averageUtilization: 80
           type: Utilization
