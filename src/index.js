@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 mongoose
   .connect('mongodb://mongodb:27017/test')
-  .then(x => {
+  .then(() => {
     console.log('conectou')
   })
   .catch(error => console.log);

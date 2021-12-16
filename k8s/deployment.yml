@@ -23,8 +23,6 @@ spec:
           requests:
             cpu: 100m
             memory: 128Mi
-        depends_on: 
-          - mongodb
         ports:
         - containerPort: 80
         env:
