@@ -16,6 +16,13 @@ spec:
       containers:
       - name: library
         image: dyegomaas/library:latest
+        resources:
+          limits:
+            cpu: 200m
+            memory: 256Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
         ports:
         - containerPort: 80
         env:
