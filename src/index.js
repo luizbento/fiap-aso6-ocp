@@ -1,10 +1,8 @@
 const mongoose = require('mongoose');
 
-mongoose
-  .connect('mongodb://mongo:27017/test')
-  .then(() => {
-    console.log('conectou')
-  }, error => console.log('TESTE', error));
+mongoose.connect('mongodb://mongo:27017/test');
+mongoose.connection.on('connected', () => console.log('Connected'));
+mongoose.connection.on('error', () => console.log('Connection failed with - ', err));
 
 const Book = mongoose.model('Books', {
   name: String,
