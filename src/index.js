@@ -7,7 +7,7 @@ mongoose
   })
   .then(() => {
     console.log('conectou')
-  }, error => console.log(error));
+  }, error => console.log('TESTE', error));
 
 const Book = mongoose.model('Books', {
   name: String,
