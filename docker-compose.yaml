@@ -6,10 +6,10 @@ services:
     environment:
       - LIBRARY_SECRET=um-segredo
     depends_on:
-      mongodb-app
+      mongo
     networks:
       - mongo
-  mongodb-app:
+  mongo:
     image: mongo:3.6.0
     tmpfs: /data/db
     ports:
@@ -24,5 +24,5 @@ services:
       - mongo
   networks:
     mongo:
-      name: mongodb-app
+      name: mongo
       driver: bridge
