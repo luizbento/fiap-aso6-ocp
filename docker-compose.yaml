@@ -8,7 +8,7 @@ services:
     depends_on:
       mongo
     networks:
-      - mongo
+      - mongo-compose-network
   mongo:
     image: mongo:3.6.0
     tmpfs: /data/db
@@ -21,8 +21,8 @@ services:
       retries: 5
       start_period: 40s
     networks:
-      - mongo
-  networks:
-    mongo:
-      name: mongo
-      driver: bridge
+      - mongo-compose-network
+
+networks:
+  mongo-compose-network:
+    driver: bridge
