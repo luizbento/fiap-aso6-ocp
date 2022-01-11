@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: 'library'
-  namespace: dyegomaas
+  namespace: luizbento
 spec:
   replicas: 1
   selector:
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: library
-        image: dyegomaas/library:latest
+        image: luizbento/library:latest
         resources:
           limits:
             cpu: 200m
@@ -38,7 +38,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mongodb
-  namespace: dyegomaas
+  namespace: luizbento
 spec:
   replicas: 1
   selector:
