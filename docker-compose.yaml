@@ -24,4 +24,4 @@ services:
       - mongo
   networks:
     mongo:
-      name: mongodb
+      name: mongodb-app
