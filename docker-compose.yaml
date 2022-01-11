@@ -12,6 +12,7 @@ services:
       - mongo-compose-network
   mongo:
     image: mongo:3.6.0
+    command: ["--bind_ip_all"]
     tmpfs: /data/db
     ports:
       - "27018:27017"
