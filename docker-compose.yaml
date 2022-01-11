@@ -7,6 +7,8 @@ services:
       - LIBRARY_SECRET=um-segredo
     depends_on:
       mongodb-app
+    networks:
+      - mongo
   mongodb-app:
     image: mongo:3.6.0
     tmpfs: /data/db
@@ -18,3 +20,8 @@ services:
       timeout: 10s
       retries: 5
       start_period: 40s
+    networks:
+      - mongo
+networks:
+  mongo:
+    name: mongodb
