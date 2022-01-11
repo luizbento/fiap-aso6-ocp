@@ -5,7 +5,7 @@ services:
       context: .
     environment:
       - LIBRARY_SECRET=um-segredo
-    depends_on:
+    links:
       mongo
         condition: service_healthy
     networks:
