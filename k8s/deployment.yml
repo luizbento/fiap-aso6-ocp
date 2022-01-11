@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: library
-        image: luizbento/library:latest
+        image: dyegomaas/library:latest
         resources:
           limits:
             cpu: 200m
