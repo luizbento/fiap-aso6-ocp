@@ -5,8 +5,16 @@ services:
       context: .
     environment:
       - LIBRARY_SECRET=um-segredo
+    depends_on:
+      mongodb
   mongodb:
     image: mongo:3.6.0
     tmpfs: /data/db
     ports:
       - "27018:27017"
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo localhost:27017/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
