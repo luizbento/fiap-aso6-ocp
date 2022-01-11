@@ -1,10 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose
-  .connect(`mongodb://mongo:27017/test?connectTimeoutMS=${process.env.CONNECTION_TIMEOUT_MS || 30000}`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect('mongodb://mongo:27017/test')
   .then(() => {
     console.log('conectou')
   }, error => console.log('TESTE', error));
