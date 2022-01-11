@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
 mongoose
-  .connect(`mongodb://mongodb:27017/test?connectTimeoutMS=${process.env.CONNECTION_TIMEOUT_MS || 30000}`)
+  .connect(`mongodb://mongodb-app:27017/test?connectTimeoutMS=${process.env.CONNECTION_TIMEOUT_MS || 30000}`)
   .then(() => {
     console.log('conectou')
   }, error => console.log(error));
 
-const Book = mongoose.model('Books', { 
+const Book = mongoose.model('Books', {
   name: String,
   releaseDate: Date
 });
@@ -33,7 +33,7 @@ app.get('/books', async (req, res) => {
 app.post('/books', (req, res) => {
   const book = new Book(req.body)
   book.save().then(() => res.send('book saved'))
-  
+
 })
 
 app.listen(port, () => {

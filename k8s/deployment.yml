@@ -37,20 +37,20 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mongodb
+  name: mongodb-app
   namespace: luizbento
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mongodb
+      app: mongodb-app
   template:
     metadata:
       labels:
-        app: mongodb
+        app: mongodb-app
     spec:
       containers:
-      - name: mongodb
+      - name: mongodb-app
         image: mongo:latest
         ports:
         - containerPort: 27017

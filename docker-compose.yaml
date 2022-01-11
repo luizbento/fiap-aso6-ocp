@@ -6,8 +6,8 @@ services:
     environment:
       - LIBRARY_SECRET=um-segredo
     depends_on:
-      mongodb
-  mongodb:
+      mongodb-app
+  mongodb-app:
     image: mongo:3.6.0
     tmpfs: /data/db
     ports:
